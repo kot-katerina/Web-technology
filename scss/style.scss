@@ -1,0 +1,918 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Open+Sans+Condensed:wght@300&family=Press+Start+2P&display=swap');
+
+@import "./helpers/mixins";
+@import "./helpers/variables";
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+        transform-origin: center center;
+    }
+    to {
+        transform: rotate(360deg);
+        transform-origin: center center;
+    }
+}
+
+@keyframes small {
+    from {
+        height: 15%;
+    }
+    to {
+        height: 0%;
+    }
+}
+
+@keyframes rectangle {
+    0% {
+        width: 70%;
+        transform: rotate(0deg);
+        transform-origin: center center;
+    }
+    100% {
+        width: 50%;
+        transform: rotate(-360deg);
+        transform-origin: center center;
+    }
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    max-width: 549px;
+    height: 100%;
+    background-color: $col_1;
+    position: relative;
+}
+
+.fly-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $col_4;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0;
+    transition: all 1s;
+    z-index: 200;
+}
+
+.fly-button.active {
+    opacity: 1;
+}
+
+.fly-button__line {
+    width: 2px;
+    height: 70%;
+    background-color: white;
+    position: relative;
+}
+
+.fly-button__line::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 0;
+    left: -5px;
+}
+
+.first-screen {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 15%;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    margin-left: 5%;
+}
+
+.logo__text {
+    @include text($ff_cards, normal, 100, 100%, none, white);
+    font-size: 20px;
+    span {
+        font-family: $ff_logo;
+        font-size: 30px;
+    }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: flex-end;
+}
+
+.menu__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.menu__line {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: relative;
+}
+
+.menu__line::before {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+.menu__line::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+}
+
+.menu__image {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -150%;
+    background-color: $col_1;
+    z-index: 200;
+    transition: all 1s;
+}
+
+.burger-menu.active {
+    right: 0;
+}
+
+.burger-menu__btn {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 20px;
+    position: relative;
+    align-self: flex-end;
+}
+
+.burger-menu__btn::before {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+.burger-menu__btn::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    margin: 20px 0;
+}
+
+.nav-menu__list {
+    width: 100%;
+    padding-left: 0;
+    list-style: none;
+    height: 100%;
+}
+
+.nav-menu__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+}
+
+.nav-menu__link {
+    text-decoration: none;
+    @include text($ff_cards, normal, normal, 100%, none, white);
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.nav-menu__link:hover {
+    color: $col_5;
+}
+
+.introduce {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    height: calc(100vh - 15%);
+    overflow: hidden;
+}
+
+.introduce__title {
+    @include text($ff_cards, normal, normal, 100%, none, white);
+    font-size: calc(1.3em + 1vw);
+    text-align: left;
+    width: 90%;
+    margin: 20px auto;
+    z-index: 10;
+}
+
+.introduce__text {
+    @include text($ff_text, normal, normal, 120%, none, white);
+    font-size: calc(1.1em + 1vw);
+    text-align: left;
+    width: 90%;
+    margin: 20px auto;
+    z-index: 10;
+}
+
+.introduce__link {
+    @include text($ff_text, normal, normal, 120%, none, white);
+    font-size: inherit;
+}
+
+.introduce__link:hover {
+    color: $col_4;
+}
+
+.introduce__link_bottom {
+    text-align: center;
+    font-size: calc(1.1em + 1vw);
+    z-index: 10;
+    text-decoration: none;
+    width: fit-content;
+    margin: 5px auto;
+}
+
+.introduce__image {
+    max-width: 80%;
+    z-index: 1;
+    position: absolute;
+    top: 30%;
+    right: -40%;
+    animation: rotate 50s linear infinite forwards;
+}
+
+.introduce__cover {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc((100vh - 15%)/3);
+    align-self: flex-end;
+}
+
+.introduce__subtitle {
+    @include text($ff_logo, normal, normal, 100%, none, white);
+    font-size: 50px;
+    text-align: center;
+    width: fit-content;
+    margin: 35px auto 10px;
+    z-index: 10;
+}
+
+.introduce__decor {
+    width: 2px;
+    height: 7%;
+    background-color: $col_5;
+    align-self: center;
+    animation: small 1.5s linear infinite reverse;
+    margin-top: 5%;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.main.active {
+    display: none;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    z-index: 10;
+}
+
+.about__title {
+    @include text($ff_cards, normal, normal, 100%, none, white);
+    font-size: calc(1.3em + 1vw);
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.about__text {
+    @include text($ff_text, normal, normal, 120%, none, white);
+    font-size: calc(1.1em + 1vw);
+    width: 90%;
+    margin: 10px auto;
+    text-align: left;
+}
+
+.technologies {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 30px;
+    position: relative;
+}
+
+.technologies__title {
+    @include text($ff_cards, normal, normal, 120%, none, white);
+    font-size: calc(1.3em + 1vw);
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.technologies__text {
+    @include text($ff_text, normal, normal, 120%, none, white);
+    font-size: calc(1.1em + 1vw);
+    width: 90%;
+    margin: 10px auto;
+    text-align: left;
+    z-index: 10;
+}
+
+.technologies__subtitle {
+    @include text($ff_cards, normal, normal, 100%, none, white);
+    font-size: calc(1.2em + 1vw);
+    width: 90%;
+    margin: 15px auto;
+    text-align: left;
+    z-index: 10;
+}
+
+.technologies__image {
+    width: 70%;
+    position: absolute;
+    left: -32%;
+    top: 34%;
+    z-index: 2;
+    animation: rectangle 15s ease-in-out  infinite alternate;
+}
+
+.technologies__link {
+    @include text($ff_text, normal, normal, 120%, none, white);
+    font-size: calc(1.1em + 1vw);
+    margin: 5px auto;
+    z-index: 10;
+}
+
+.technologies__link:hover {
+    color: $col_4;
+}
+
+.magic {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.magic__title {
+    @include text($ff_cards, normal, normal, 200%, none, white);
+    font-size: calc(1.3em + 1vw);
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.magic__text {
+    @include text($ff_text, normal, normal, 120%, none, white);
+    font-size: calc(1.1em + 1vw);
+    width: 90%;
+    margin: 10px auto;
+    text-align: left;
+    z-index: 10;
+}
+
+.magic__iframe {
+    width: 90%;
+    height: 300px;
+    margin: 15px auto;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.calendar__title {
+    @include text($ff_cards, normal, normal, 200%, none, white);
+    font-size: calc(1.3em + 1vw);
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.calendar__text {
+    @include text($ff_text, normal, normal, 120%, none, white);
+    font-size: calc(1.1em + 1vw);
+    width: 90%;
+    margin: 10px auto;
+    text-align: left;
+    z-index: 10;
+}
+
+.calendar__label {
+    width: 80%;
+    margin: 15px auto 0;
+    @include text($ff_text, normal, normal, 120%, none, white);
+    font-size: calc(1.1em + 1vw);
+}
+
+.calendar__input {
+    width: 80%;
+    height: 40px;
+    margin: 15px auto;
+    border-radius: 8px;
+    border: none;
+    background-color: white;
+    outline: none;
+}
+
+.calendar__btn {
+    width: 165px;
+    height: 45px;
+    margin: 10px auto;
+    background-color: $col_5;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    @include text($ff_cards, normal, 600, 120%, none, $col_1);
+    font-size: 14px;
+}
+
+.calehdar__result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 30px auto;
+    @include text($ff_cards, normal, normal, 120%, none, white);
+    font-size: 18px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.footer.active {
+    display: none;
+}
+
+.logo_footer {
+    width: 30%;
+}
+
+.logo__text_footer {
+    font-size: 14px;
+    span {
+        font-size: 18px;
+    }
+}
+
+.menu-footer {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    min-height: 185px;
+}
+
+.menu-footer__list {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    padding-left: 0;
+}
+
+.menu-footer__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    height: 20%;
+}
+
+.menu-footer__link {
+    text-decoration: none;
+    @include text($ff_cards, normal, normal, 100%, none, white);
+    font-size: 12px;
+    width: fit-content;
+    height: 100%;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.menu-footer__link:hover {
+    color: $col_4;
+}
+
+@media (min-width: 550px) and (max-width: 749px) {
+    .page {
+        min-width: 550px;
+        max-width: 749px;
+    }
+
+    .first-screen {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .introduce__image {
+        max-width: 60%;
+        top: 25%;
+        right: -35%;
+    }
+
+    .introduce__subtitle {
+        margin: 45px auto;
+    }
+
+    .introduce__link_bottom {
+        display: none;
+    }
+
+    .introduce__decor {
+        display: none;
+    }
+
+    .calendar__label {
+        width: 60%;
+    }
+    
+    .calendar__input {
+        width: 60%;
+    }
+
+}
+
+@media (min-width: 750px) and (max-width: 1000px) {
+    @keyframes rectangle {
+        0% {
+            width: 50%;
+            transform: rotate(0deg);
+            transform-origin: center center;
+        }
+        100% {
+            width: 30%;
+            transform: rotate(-360deg);
+            transform-origin: center center;
+        }
+    }
+    .page {
+        min-width: 750px;
+        max-width: 1000px;
+    }
+
+    .first-screen {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .logo {
+        width: 20%;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        align-items: flex-end;
+    }
+    
+    .menu__btn {
+        display: none;
+    }
+    
+    .menu__image {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+    
+    .burger-menu {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+    
+    .burger-menu__btn {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+    
+    .nav-menu__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 96%;
+        padding-left: 0;
+        list-style: none;
+        height: 70%;
+        margin: 20px auto 0;
+    }
+    
+    .nav-menu__item {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        height: 100%;
+    }
+    
+    .nav-menu__link {
+        text-decoration: none;
+        @include text($ff_cards, normal, normal, 100%, none, white);
+        font-size: 14px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu__link:hover {
+        color: $col_5;
+    }
+
+    .introduce {
+        padding-bottom: 17px;
+    }
+
+    .introduce__title {
+        margin: 25px auto;
+    }
+    
+    .introduce__text {
+        margin: 30px auto;
+    }
+
+    .introduce__image {
+        max-width: 55%;
+        top: 20%;
+        right: -35%;
+    }
+
+    .introduce__subtitle {
+        margin: 55px auto;
+    }
+
+    .introduce__link_bottom {
+        margin: 20px auto;
+    }
+
+    
+    .introduce__decor {
+        display: none;
+    }
+
+    .magic__iframe {
+        width: 70%;
+        height: 370px;
+        margin: 15px auto;
+    }
+
+    .calendar__label {
+        width: 50%;
+    }
+    
+    .calendar__input {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1001px) {
+    @keyframes small {
+        from {
+            height: 20%;
+        }
+        to {
+            height: 0%;
+        }
+    }
+
+    @keyframes rectangle {
+        0% {
+            width: 40%;
+            transform: rotate(0deg);
+            transform-origin: center center;
+        }
+        100% {
+            width: 20%;
+            transform: rotate(-360deg);
+            transform-origin: center center;
+        }
+    }
+
+    .page {
+        min-width: 1001px;
+        max-width: none;
+    }
+
+    .first-screen {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .logo {
+        width: 20%;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        align-items: flex-end;
+    }
+    
+    .menu__btn {
+        display: none;
+    }
+    
+    .menu__image {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        margin-top: 10px;
+    }
+    
+    .burger-menu {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+    
+    .burger-menu__btn {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+    
+    .nav-menu__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 96%;
+        padding-left: 0;
+        list-style: none;
+        height: 70%;
+        margin: 20px auto 0;
+    }
+    
+    .nav-menu__item {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        height: 100%;
+    }
+    
+    .nav-menu__link {
+        text-decoration: none;
+        @include text($ff_cards, normal, normal, 100%, none, white);
+        font-size: 18px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu__link:hover {
+        color: $col_5;
+    }
+
+    .introduce__image {
+        max-width: 40%;
+        top: 20%;
+        right: -20%;
+    }
+
+    .introduce__decor {
+        display: block;
+        width: 2px;
+        height: 20%;
+        background-color: $col_5;
+        align-self: center;
+        animation: small 1.5s linear infinite reverse;
+        margin-top: 5px;
+    }
+
+    .technologies__image {
+        width: 70%;
+        position: absolute;
+        left: -12%;
+        top: 34%;
+    }
+
+    .magic__iframe {
+        width: 60%;
+        height: 400px;
+        margin: 15px auto;
+    }
+
+    .calendar__label {
+        width: 40%;
+    }
+    
+    .calendar__input {
+        width: 40%;
+    }
+}
+

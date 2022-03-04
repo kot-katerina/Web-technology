@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Современные web-технологии</title>
+</head>
+<body class="page">
+
+    <div class="fly-button">
+        <div class="fly-button__line"></div>
+    </div>
+
+    <section class="first-screen">
+        <header class="header">
+            <div class="logo">
+                <p class="logo__text"><span>WEB</span><br>технологии</p>
+            </div>
+            <div class="menu">
+                <div class="menu__btn">
+                    <div class="menu__line"></div>
+                </div>
+                <div class="burger-menu">
+                    <div class="burger-menu__btn"></div>
+                    <nav class="nav-menu">
+                        <ul class="nav-menu__list">
+                            <li class="nav-menu__item">
+                                <a href="#about" class="nav-menu__link">Каскадные таблицы стилей</a>
+                            </li>
+                            <li class="nav-menu__item">
+                                <a href="#technologies" class="nav-menu__link">Технологии CSS</a>
+                            </li>
+                            <li class="nav-menu__item">
+                                <a href="#magic" class="nav-menu__link">Волшебство CSS</a>
+                            </li>
+                            <li class="nav-menu__item">
+                                <a href="#calendar" class="nav-menu__link">Стэк технологий</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <section class="introduce">
+            <h1 class="introduce__title">Современные WEB-технологии</h1>
+            <p class="introduce__text"><a href="https://developer.mozilla.org/ru/docs/Web" target="_blank" class="introduce__link">Современные веб-технологии</a> предоставляют разработчикам неограниченные возможности для реализации своих идей. Для того, чтобы вы могли использовать весь их потенциал, необходимо знать как правильно их использовать. В данном разделе мы расскажем про одну из них:</p>
+            <img src="./images/polygon.svg" alt="Декоративный элемент 'Треугольник'" class="introduce__image">
+            <div class="introduce__cover">
+                <p class="introduce__subtitle">CSS</p>
+                <a href="#about" class="introduce__link introduce__link_bottom">Читать далее</a>
+                <div class="introduce__decor"></div>
+            </div>
+        </section>
+    </section>
+    
+    <main class="main">
+        <section class="about" id="about">
+            <h2 class="about__title">Каскадные таблицы стилей</h2>
+            <p class="about__text">Сайты в интернете создаются при помощи HTML и CSS. HTML является основой страницы. Но страница созданная с помощью только языка HTML, не очень красива. HTML структурирует документ, CSS тесно взаимодействует с браузером, чтобы оформление сайта имело совершенный вид.</p>
+            <p class="about__text">CSS используют для форматирования HTML-элементов, это форматирование включает в себя стиль - правило, описывающее внешний вид конкретной части вэб-страницы. Таблица стилей является набором таких стилей.</p>
+            <p class="about__text">Правила CSS подключаются к сайту с помощью специальных тэгов в HTML в виде отдельных файлов или прописываются напрямую в структуре странички. CSS правила позволяют не только форматировать код HTML, но так же создавать анимацию на страничке, что делает её привлекательной и динамичной.</p>
+            <p class="about__text">Время не стоит на месте, развивается Интернет, а так же и гаджеты, которыми мы пользуемся. Теперь каждый может при помощи мобильного телефона или планшета выйти в сеть. Это в свою очередь заставило разработчиков задуматься о том, что сайты должны быть привлекательными и работоспособными на любом устройстве. Теперь сайты должны быть отзывчивыми и адаптивными, что в свою очередь возможно реализовать с помощью современных возможностей CSS</p>
+        </section>
+        <section class="technologies" id="technologies">
+            <h2 class="technologies__title">Технологии CSS</h2>
+            <p class="technologies__text">Создатели CSS постоянно выпускают новые версии своих программных продуктов. Версия CSS1, появившаяся в 1996 году, стала основой для дальнейшего совершенствования языка каскадных таблиц стилей.В первой версии языка CSS были введены основные понятия и команды: базовая структура таблиц стилей, концепция селекторов и большая часть свойств CSS.</p>
+            <p class="technologies__text">В версии CSS2 были добавлены новые возможности, включая совместимость с различными принтерами, мониторами и другими устройствами. Здесь также были добавлены новые селекторы и возможность точно позиционировать элементы на веб-страницах.</p>
+            <h3 class="technologies__subtitle">Flexbox</h3>
+            <img src="./images/Rectangle.svg" alt="Докоративный элемент 'Квадрат'" class="technologies__image">
+            <p class="technologies__text">Ещё недавно макет для всех страниц HTML верстался с помощью таблиц, float и других свойств CSS, которые не очень хорошо подходят для стилизации сложных веб-страниц.</p>
+            <p class="technologies__text">Flexbox — режим вёрстки, который был специально разработан для создания надёжных адаптивных страниц. Flexbox упростил правильное выравнивание элементов и их содержимого и теперь является предпочтительной системой CSS для большинства веб-разработчиков.</p>
+            <a href="https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox" class="technologies__link" target="_blank">Подробнее о технологии</a>
+            <h3 class="technologies__subtitle">Grid</h3>
+            <p class="technologies__text">CSS Grid Layout система двумерного макета, оптимизированного для дизайна пользовательского интерфейса. Главная идея, лежащая в основе макета сетки, заключается в разделении веб-страницы на столбцы и строки. В образовавшиеся области сетки можно помещать элементы сетки, а управлять их размерами и расположением можно с помощью специальных свойств модуля.</p>
+            <p class="technologies__text">Кроме того, благодаря своей способности явно размещать элементы в сетке, Grid Layout позволяет кардинально преобразовывать структуру визуального макета (отображаемого на экране), не требуя соответствующих изменений разметки.</p>
+            <a href="https://html5book.ru/css-grid/" class="technologies__link" target="_blank">Подробнее о технологии</a>
+            <h3 class="technologies__subtitle">Keyframes</h3>
+            <p class="technologies__text">CSS переходы и трансформации отлично подходят для создания визуального взаимодействия на основе изменений состояния. Чтобы лучше контролировать происходящее на экране, можно воспользоваться свойством CSS анимации для создания простой анимации на @keyframes.</p>
+            <p class="technologies__text">CSS keyframes позволяет производить изменения постоянно и автоматически, а не только в ответ на события мыши, как в transition. С помощью кейфреймов можно менять CSS стили для заданного селектора в любой точке в момент смены состояния или события, определенного через JQuery (например, скролинг). Данное правило используется в паре со свойством animation, с помощью которого можно задать duration, timing function, delay и direction. Свойства типа transform, если они входят в анимацию, объявляются внутри правила @keyframes.</p>
+            <a href="https://webformyself.com/prostaya-css-animaciya-s-pomoshhyu-keyframes/" class="technologies__link" target="_blank">Подробнее о технологии</a>
+        </section>
+        <section class="magic" id="magic">
+            <h2 class="magic__title">Волшебство CSS</h2>
+            <p class="magic__text">CSS предоставляет большие возможности. Можно создавать не только анимацию на сайте, но даже игры! </p>
+            <iframe src="https://www.youtube.com/embed/IWDUMzrn_Tw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="magic__iframe"></iframe>
+        </section>
+        <section class="calendar" id="calendar">
+            <h2 class="calendar__title">Стэк технологий</h2>
+            <p class="calendar__text">При разработке сайтов используют стэк технологий: HTML + CSS + JavaScript. Это позволяет добавлять интерактивности на странице и реализовывать более сложные решения, например, онлайн калькуляторы, списки дел и многое другое.</p>
+            <p class="calendar__text">Предлагаем Вашему вниманию один из вариантов демонстрации работы JavaScript: вывод информации о дате.</p>
+            <label for="date" class="calendar__label">Выберите дату</label>
+            <input type="date" class="calendar__input" id="date">
+            <button class="calendar__btn">Информация о дате</button>
+            <div class="calehdar__result"></div>
+            <a href="https://html5book.ru/osnovy-javascript/" class="technologies__link" target="_blank">Подробнее о технологии JavaScript</a>
+
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="logo logo_footer">
+            <p class="logo__text logo__text_footer"><span>WEB</span><br>технологии</p>
+        </div>
+        <div class="menu-footer">
+            <ul class="menu-footer__list">
+                <li class="menu-footer__item">
+                    <a href="#about" class="menu-footer__link">Каскадные таблицы стилей</a>
+                </li>
+                <li class="menu-footer__item">
+                    <a href="#technologies" class="menu-footer__link">Технологии CSS</a>
+                </li>
+                <li class="menu-footer__item">
+                    <a href="#magic" class="menu-footer__link">Волшебство CSS</a>
+                </li>
+                <li class="menu-footer__item">
+                    <a href="#calendar" class="menu-footer__link">Стэк технологий</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>
